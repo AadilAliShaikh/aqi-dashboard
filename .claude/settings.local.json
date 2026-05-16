@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\aadil.a.shaikh\\\\Documents\\\\MCA-Project\")",
+      "PowerShell($base = \"C:\\\\Users\\\\aadil.a.shaikh\\\\Documents\\\\MCA-Project\"; @\\(\"backend\",\"backend\\\\config\",\"backend\\\\routes\",\"backend\\\\controllers\",\"backend\\\\services\",\"backend\\\\models\",\"backend\\\\data\",\"backend\\\\scripts\",\"backend\\\\tests\",\"frontend\",\"frontend\\\\public\",\"frontend\\\\src\",\"frontend\\\\src\\\\components\",\"frontend\\\\src\\\\services\",\"frontend\\\\src\\\\styles\",\"frontend\\\\src\\\\utils\",\"docs\",\"docs\\\\diagrams\"\\) | ForEach-Object { New-Item -ItemType Directory -Path \\(Join-Path $base $_\\) -Force | Out-Null }; Get-ChildItem $base -Recurse -Directory | Select-Object FullName)",
+      "PowerShell(Write-Host \"--- /api/locations/cities ---\"; \\(Invoke-RestMethod http://localhost:5000/api/locations/cities\\).data; Write-Host \"`n--- /api/kpi/summary?city=Delhi&days=7 ---\"; Invoke-RestMethod \"http://localhost:5000/api/kpi/summary?city=Delhi&days=7\" | ConvertTo-Json -Depth 4; Write-Host \"`n--- /api/forecast/Delhi?horizon=6 ---\"; Invoke-RestMethod \"http://localhost:5000/api/forecast/Delhi?horizon=6\" | ConvertTo-Json -Depth 4)",
+      "PowerShell(Stop-Process -Id 22476 -Force)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 5000 -State Listen -ErrorAction SilentlyContinue)"
+    ]
+  }
+}

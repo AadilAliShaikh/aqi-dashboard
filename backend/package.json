@@ -1,0 +1,36 @@
+{
+  "name": "aqi-dashboard-backend",
+  "version": "1.0.0",
+  "description": "Air Quality Monitoring and Pollution Trend Visualization Dashboard - Backend (Node.js Express + node:sqlite)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --watch --disable-warning=ExperimentalWarning server.js",
+    "init-db": "node --disable-warning=ExperimentalWarning scripts/initDB.js",
+    "seed": "node --disable-warning=ExperimentalWarning scripts/seedData.js",
+    "ingest": "node --disable-warning=ExperimentalWarning scripts/runIngest.js",
+    "reset": "node --disable-warning=ExperimentalWarning scripts/resetDB.js",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/smoke.test.js"
+  },
+  "keywords": [
+    "air-quality",
+    "aqi",
+    "dashboard",
+    "etl",
+    "forecasting",
+    "mca-project"
+  ],
+  "author": "Aadil A. Shaikh (MCA, Plag Pro Noida)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

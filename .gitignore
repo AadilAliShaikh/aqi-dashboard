@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+dist/
+build/
+.vite/
+
+# DB
+backend/data/*.db
+backend/data/*.db-journal
+backend/data/*.db-wal
+backend/data/*.db-shm
+
+# Editor
+.vscode/
+.idea/
