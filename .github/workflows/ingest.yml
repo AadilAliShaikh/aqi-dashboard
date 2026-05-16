@@ -1,0 +1,21 @@
+name: Refresh AQI data
+
+on:
+  schedule:
+    # Every 30 minutes. OpenAQ stations update every 15-60 min,
+    # so this catches each refresh without wasting API calls.
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger ETL on Render
+        run: |
+          echo "Starting ETL at $(date -u)"
+          response=$(curl -fsS -X POST \
+            -w "\nHTTP_STATUS:%{http_code} TIME:%{time_total}s\n" \
+            https://aqi-dashboard-segd.onrender.com/api/etl/run)
+          echo "$response"
